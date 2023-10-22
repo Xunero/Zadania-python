@@ -41,3 +41,5 @@ while True:
     
     else:
         print("Nieprawidłowy wybór. Wybierz 1, 2, 3 lub 4.")
+
+        
