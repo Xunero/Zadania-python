@@ -24,12 +24,20 @@ def oblicz_objetosc_stozka(r, h):
 def oblicz_pole_powierzchni_stozka(r, l):
     return 3.14 * r * (r + l)
 
+# Funkcja do obliczania objętości stożka ścietego
+def oblicz_objetosc_stozka_scietego(h, R,r):
+    return (1/3) * 3.14 * h * (R**2 + R* r + r**2)
+
+# Funkcja do obliczania pola powierzchni stożka ścietego
+def oblicz_pole_powierzchni_stozka_scietego(R, r, l):
+    return ((3.14 * (R + r)) * l) + (3.14 * (math.pow(R,2) + math.pow(r,2)))
 # Główna funkcja programu
 def main():
     print("Wybierz bryłę do obliczeń:")
     print("a) Kula")
     print("b) Prostopadłościan")
     print("c) Stożek")
+    print("d) Stożek ściety")
     wybor = input("Twój wybór: ")
 
     if wybor == 'a':
@@ -48,6 +56,16 @@ def main():
         objetosc = oblicz_objetosc_stozka(r, h)
         l = math.sqrt(r**2 + h**2)  # obliczamy długość tworzącej
         pole_powierzchni = oblicz_pole_powierzchni_stozka(r, l)
+    elif wybor == 'd':
+        h = float(input("Podaj wysokosc stożka ścietego: "))
+        R = float(input("Podaj promień podstawy stożka: "))
+        r = float(input("Podaj promien przeciecia stożka: ")) 
+        l = float(input("Podaj tworzącą stożka, jesli nie znasz wpisz 0: "))
+        if l == 0:
+            l = math.sqrt((h*h) + math.pow(R,2) - math.pow(r, 2))
+        
+        objetosc = oblicz_objetosc_stozka_scietego(h, R, r)
+        pole_powierzchni = oblicz_pole_powierzchni_stozka_scietego(R, r, l)
     else:
         print("Nieprawidłowy wybór bryły.")
         return

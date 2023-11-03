@@ -13,6 +13,10 @@ while True:
         przedmiot = input("Podaj nazwę przedmiotu: ")
         ocena = float(input("Podaj ocenę: "))
         
+        while ocena < 1 or ocena > 6:
+            print("Podano żle ocene, podaj jescze raz.")
+            ocena = float(input("Podaj ocenę: "))
+
         if przedmiot in oceny:
             oceny[przedmiot].append(ocena)
         else:
