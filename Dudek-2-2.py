@@ -39,3 +39,13 @@ for _ in range(liczba_danych):
     zapisz_do_pliku('dane_osobowe.csv', dane)
 
 print(f"Zapisano {liczba_danych} losowych danych osobowych do pliku 'dane_osobowe.csv'.")
+
+choose = input(print("Chcesz wczytac dane z pliku? (t/n)"))
+
+if choose == t:
+    wypisz = input("Podaj wartosc do wyszukania w pliku: ")
+    with open('dane_osobowe.csv', 'r') as dane:
+       reader = csv.reader(dane,delimiter=",")
+       for data in dane:
+          if wypisz in data:
+               print(data)
