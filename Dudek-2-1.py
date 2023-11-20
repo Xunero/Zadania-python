@@ -16,6 +16,25 @@ def znajdz_min_max_pozycje(lista):
 
     return min_wartosc, max_wartosc, min_pozycja, max_pozycja
 
+def mediana(lista):
+    
+    if len(lista) % 2 == 0:
+      niepa = len(lista) / 2
+      parzy = int(niepa)
+      parzy = niepa + 1
+      x = lista[niepa] 
+      y = lista[parzy]
+      median = (x + y)
+      return median
+    
+    if len(lista) % 2 == 1:
+        niepa = len(lista) / 2
+        xxx = int(niepa)
+        miedin = lista[xxx]
+        return miedin
+
+
+
 def srednia(lista):
     if len(lista) == 0:
         return None
@@ -40,10 +59,12 @@ while len(lista_liczb) < 15:
 
 min_wartosc, max_wartosc, min_pozycja, max_pozycja = znajdz_min_max_pozycje(lista_liczb)
 srednia_wartosc = srednia(lista_liczb)
+med = mediana(lista_liczb)
 
 print(f"Najmniejsza wartość: {min_wartosc}, pozycja: {min_pozycja}")
 print(f"Największa wartość: {max_wartosc}, pozycja: {max_pozycja}")
 print(f"Średnia wartość: {srednia_wartosc}")
+print(f"Mediana: {med} ")
 
 wartosc_uzytkownika = int(input("Podaj wartość, której pozycję chcesz znaleźć: "))
 pozycja_wartosci = znajdz_pozycje_wartosci(lista_liczb, wartosc_uzytkownika)
