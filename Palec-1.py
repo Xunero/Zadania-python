@@ -1,8 +1,11 @@
 import random 
 import time
+import sys
 
 # Tworzenie tablicy z 50 miejscami i wypełnienie jej losowymi liczbami
-array = [random.randint(1, 1000) for _ in range(50)]
+def tablicalos(dlug):
+    return [random.randint(1, 1000) for _ in range(dlug)]
+    
 
 # Funkcja sortująca szybka
 def quick_sort(arr):
@@ -13,6 +16,22 @@ def quick_sort(arr):
     middle = [x for x in arr if x == pivot]
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + middle + quick_sort(right)
+
+rozmiar = int(input("Podaj rozmiar tabliczy: "))
+
+tryb = input("Chcesz sam wpisac wartosci ? wpisz M. Chcesz losowe wartosci? wpisz L: ")
+
+array = []
+
+if tryb == "L":
+    array = tablicalos(rozmiar)
+elif tryb == "M":
+    for i in range(rozmiar):
+        liczba = float(input("Podaj liczbę: "))
+        array.append(liczba)
+else:
+    print("Wprowadziles zla wartosc")
+    sys.exit()
 
 # Sortowanie tablicy
 start = time.time()
