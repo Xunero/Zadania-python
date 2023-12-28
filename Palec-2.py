@@ -1,4 +1,5 @@
 import csv
+import time
 
 def wczytaj_tabele(nazwa_pliku, delimiter=';'):
     try:
@@ -37,9 +38,14 @@ def main():
     if kolumna_do_szukania not in naglowki:
         print("Podana kolumna nie istnieje.")
         return
+    start = time.time()
 
     wyniki = wyszukaj_prosta_metoda(tabela, kolumna_do_szukania, szukane)
 
+    time.sleep(5)
+    stop = time.time()    
+
+    print(f"Wyszukiwanie trwalo: {stop - start}")
     if not wyniki:
         print("Brak wyników.")
     else:
